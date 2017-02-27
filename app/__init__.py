@@ -1,7 +1,9 @@
 from flask import Flask
+from flask.ext.sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
-""" usually we can add main fuction like def hellowolrd(): return "hello world" below and with app.run(...) then we can
-run the applicatio,but in this example, we put main function to views.py and app.run to the run.py """
 app.config.from_object('config')
-from app import views
+db = SQLAlchemy(app)
+
+from app import views, models
+
